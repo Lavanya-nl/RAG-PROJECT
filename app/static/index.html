@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f5ef" />
+    <title>Local Knowledge</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="library-panel" aria-label="Document library">
+        <a class="brand" href="/" aria-label="Local Knowledge home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>local<span class="brand-light">knowledge</span></span>
+        </a>
+
+        <div class="library-heading">
+          <div>
+            <p class="eyebrow">YOUR WORKSPACE</p>
+            <h1>Library</h1>
+          </div>
+          <span class="count-badge" id="document-count">0</span>
+        </div>
+
+        <form id="upload-form" class="upload-zone">
+          <input id="file-input" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple hidden />
+          <span class="upload-glyph" aria-hidden="true">+</span>
+          <strong>Bring in a document</strong>
+          <span class="upload-hint">PDF or DOCX · up to 20 MB each</span>
+          <button class="button button-ink" type="button" id="choose-files">Choose files</button>
+          <span class="upload-note" id="upload-status" aria-live="polite">Files stay on this machine.</span>
+        </form>
+
+        <section class="document-section" aria-labelledby="documents-title">
+          <div class="section-title-row">
+            <h2 id="documents-title">Indexed documents</h2>
+            <span class="section-rule"></span>
+          </div>
+          <ul id="document-list" class="document-list"></ul>
+          <p class="empty-library" id="empty-library">Your library is empty.<br />Add a document to begin.</p>
+        </section>
+
+        <div class="sidebar-bottom">
+          <div class="local-note"><span class="local-dot"></span><span>Local by design</span></div>
+          <p>Documents and embeddings live in memory while this app is running.</p>
+        </div>
+      </aside>
+
+      <main class="conversation-panel">
+        <header class="topbar">
+          <div class="mobile-brand">
+            <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+            <strong>local<span>knowledge</span></strong>
+          </div>
+          <div class="model-status" id="model-status" role="status" aria-live="polite">
+            <span class="status-light"></span>
+            <span id="status-label">Checking local models</span>
+            <button type="button" id="refresh-status" class="refresh-button" aria-label="Refresh model status" title="Refresh model status">↻</button>
+          </div>
+        </header>
+
+        <div class="conversation" id="conversation" aria-live="polite">
+          <div class="welcome" id="welcome">
+            <div class="welcome-index">01 <span>—</span> ASK YOUR LIBRARY</div>
+            <h2>Good questions<br /><em>start here.</em></h2>
+            <p>Bring your course material into the conversation.</p>
+            <div class="welcome-line"></div>
+            <span class="welcome-foot">YOUR DOCUMENTS, IN CONTEXT</span>
+          </div>
+          <div class="message-list" id="message-list"></div>
+        </div>
+
+        <div class="composer-wrap">
+          <form id="chat-form" class="composer">
+            <label class="sr-only" for="question-input">Ask a question about your documents</label>
+            <textarea id="question-input" rows="1" maxlength="2000" placeholder="Ask something about your documents…" required></textarea>
+            <div class="composer-footer">
+              <span class="composer-caption" id="composer-caption">Answers are grounded in your indexed sources.</span>
+              <button class="send-button" id="send-button" type="submit" aria-label="Send question" title="Send question">
+                <span>Ask</span><span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </form>
+          <p class="privacy-caption">Local models · Nothing sent to a cloud AI service</p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
