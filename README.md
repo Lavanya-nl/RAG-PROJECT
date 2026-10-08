@@ -14,7 +14,7 @@ A local-first **Chat with Documents** workshop app. Upload PDF and DOCX course m
 2. Download the default local models:
 
    ```powershell
-   ollama pull llama3.2:3b
+   ollama run qwen2.5:0.5b
    ollama pull nomic-embed-text
    ```
 

@@ -26,7 +26,7 @@ from app.rag import (
 load_dotenv()
 
 OLLAMA_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434").rstrip("/")
-CHAT_MODEL = os.getenv("OLLAMA_CHAT_MODEL", "llama3.2:3b")
+CHAT_MODEL = os.getenv("OLLAMA_CHAT_MODEL", "qwen2.5:0.5b")
 EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", "nomic-embed-text")
 CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "180"))
 CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "30"))
